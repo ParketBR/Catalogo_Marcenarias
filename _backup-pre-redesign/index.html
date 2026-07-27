@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Parket — Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://parket.com.br">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preload" as="image" href="autoload/Hero.webp">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="assets/js/components.js"></script>
+  <parket-seo is-main></parket-seo>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          borderRadius: { "DEFAULT": "0", "lg": "0", "xl": "0", "full": "9999px" },
+          colors: { "surface": "#131313", "background": "#000000", "primary": "#ffffff" },
+          fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="catalogo.css">
+</head>
+
+<body class="antialiased selection:bg-white selection:text-black">
+
+  <parket-nav return-url="catalogo.html" return-text=""></parket-nav>
+
+  <!-- Nav bar fixa transparente -->
+  <header class="topbar">
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#" class="topbar-logo-link" aria-label="Parket">
+      <img decoding="async" src="logo-parket.webp" alt="Parket" class="topbar-logo">
+    </a>
+  </header>
+
+  <!-- Menu de coleções (aberto pelo hambúrguer) -->
+  <nav id="menu-overlay" class="menu-overlay" aria-hidden="true" aria-label="Coleções">
+    <span class="menu-overlay-label">Coleções</span>
+    <ul id="menu-list" class="menu-list"></ul>
+  </nav>
+
+  <!-- Side index (right) -->
+  <nav id="side-index" class="side-index" aria-label="Índice"></nav>
+
+  <!-- Floating actions -->
+  <button id="back-to-top" class="floating-action" type="button" aria-label="Voltar ao topo">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero-viewport">
+    <div id="hero-sticky">
+      <div id="hero-bg" style="background-image: url('autoload/Hero.webp');"></div>
+      <div id="hero-content" class="text-center">
+        <span class="font-label uppercase tracking-[0.6em] text-[15px] text-white/50">Coleção 2026</span>
+      </div>
+      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-50">
+        <span class="font-label text-[11px] uppercase tracking-[0.4em]">Scroll</span>
+        <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SOBRE A PARKET ─── -->
+<section id="sobre" class="sobre-section">
+  <div class="sobre-content">
+    <span class="eyebrow fade-up">Sobre a Parket</span>
+
+    <h2 class="sobre-headline fade-up" style="transition-delay: 0.08s">
+      Meio século transformando madeira em legado.
+    </h2>
+
+    <p class="sobre-text fade-up" style="transition-delay: 0.16s">
+      Há mais de 50 anos, a Parket acredita que a madeira é a linguagem mais autêntica da
+      arquitetura brasileira. Cada projeto que realizamos traduz, com precisão, a visão do
+      arquiteto e a essência natural do material.
+    </p>
+
+    <p class="sobre-text fade-up" style="transition-delay: 0.24s">
+      Trabalhamos com madeiras de manejo sustentável, processos industriais de altíssima
+      precisão e uma equipe técnica que entende que cada milímetro faz a diferença.
+      Nosso compromisso é entregar superfícies que envelhecem com beleza e resistem ao
+      tempo, preservando a mesma elegância do primeiro dia.
+    </p>
+  </div>
+</section>
+
+  <!-- ─── PORQUE ESCOLHER A PARKET ─── -->
+ <section id="porque-escolher" class="porque-section">
+  <div class="porque-inner">
+    <h2 class="porque-title fade-up">Por que escolher <span translate="no" class="notranslate">Parket</span>?</h2>
+
+    <div class="multicamadas-text">
+      <p class="fade-up" style="font-size: 19.2px; text-align: center; max-width: 44rem; margin: 0 auto 1.75rem;">
+        Vivemos em uma era marcada pela velocidade e pelo excesso de informação. Nesse cenário, reconhecer a verdadeira qualidade tornou-se cada vez mais raro. A excelência está nos detalhes, na tradição e no cuidado dedicado à criação de cada peça de marcenaria em madeira nobre, desenvolvida para atravessar gerações.
+      </p>
+
+      <p class="fade-up" style="font-size: 19.2px; text-align: center; max-width: 44rem; margin: 0 auto 1.75rem;">
+        Valorizar o conhecimento, o trabalho artesanal e a qualidade é preservar a autenticidade, a beleza e a durabilidade. Esperamos que este guia tenha ajudado a responder à principal pergunta: por que escolher <span translate="no" class="notranslate">Parket</span>?
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- ─── ARVORE ─── -->
+  <section id="arvore" class="arvore-section">
+    <img src="imagens descritivas/Arvore.png" alt="Árvore" class="arvore-img fade-up" data-mouse-parallax="40" loading="eager" decoding="async">
+  </section>
+
+  <!-- ─── ESCOLHA UM PRODUTO ─── -->
+  <section id="products-index" class="index-block">
+    <div class="w-full max-w-screen-xl mx-auto">
+      <span class="eyebrow block mb-10 fade-up">Índice</span>
+      <h2 class="display-title text-[clamp(1.5rem,3vw,2.4rem)] mb-14 text-white/70 fade-up" style="transition-delay: 0.05s">
+        Escolha um produto:
+      </h2>
+      <nav id="products-nav" class="index-list fade-up" style="transition-delay: 0.12s"></nav>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCT SECTIONS (injected) ─── -->
+  <main id="products" class="relative z-10 bg-black"></main>
+
+  <!-- ─── MADEIRA MULTICAMADAS ─── -->
+  <section id="multicamadas" class="multicamadas-section">
+    <div class="multicamadas-inner">
+      <p class="multicamadas-line fade-up">Madeira multicamadas.</p>
+      <p class="multicamadas-line fade-up">O que há por trás dela?</p>
+      <p class="multicamadas-line multicamadas-accent fade-up">Estrutura tecnológica</p>
+      <p class="multicamadas-line multicamadas-accent fade-up">e mecânica de ponta.</p>
+      <img src="imagens descritivas/Camadas.png" alt="Madeira multicamadas" class="multicamadas-img fade-up" data-mouse-parallax="40" loading="lazy" decoding="async">
+      <div class="multicamadas-text">
+        <p class="fade-up">Se você acredita que aparência e essência devem caminhar juntas, está no lugar certo. As marcenarias <span translate="no" class="notranslate">Parket</span> unem beleza, sofisticação e tecnologia em cada detalhe. Assim como em um carro esportivo de alta performance, onde o design impressiona, mas é a engenharia que garante segurança, estabilidade e desempenho, uma marcenaria de excelência também vai muito além da superfície. Por trás da estética refinada das marcenarias <span translate="no" class="notranslate">Parket</span> existe uma tecnologia estrutural desenvolvida para proporcionar maior estabilidade, durabilidade e conforto. É essa combinação entre aparência impecável e qualidade construtiva que faz toda a diferença.</p>
+      </div>
+    </div>
+
+    <div class="camadas-block" data-mouse-parallax-host>
+      <div class="camadas-text" data-mouse-parallax="40">
+        <p class="camadas-line fade-up">Você chamaria</p>
+        <p class="camadas-line fade-up">isso</p>
+        <p class="camadas-line fade-up">simplesmente</p>
+        <p class="camadas-line fade-up">de marcenaria de madeira?</p>
+      </div>
+      <div class="camadas-img-wrap">
+        <img src="CAMADAS_MADEIRAS.webp" alt="Camadas madeiras" class="camadas-img fade-up" data-mouse-parallax="-50" loading="lazy" decoding="async">
+        <img src="PLANTAS.png" alt="" aria-hidden="true" class="camadas-plantas fade-up" data-mouse-parallax="-50" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PARQUET TRADICIONAL OU ENGENHEIRADO ─── -->
+  <section id="tradicional-engenheirado" class="tradicional-section">
+    <div class="tradicional-inner">
+      <h2 class="tradicional-title fade-up">Madeira maciça ou engenheirada?</h2>
+      <img src="madeira.png" alt="Comparativo madeira maciça vs engenheirada" class="tradicional-img fade-up" data-mouse-parallax="30" loading="lazy" decoding="async">
+      <div class="multicamadas-text">
+        <p class="fade-up">Existem tantos tipos diferentes de marcenarias de madeira no mercado hoje em dia – diferentes dimensões, tipos de madeira e acabamentos – que pode ser muito confuso. É fundamental não se guiar apenas por critérios estéticos. As marcenarias de madeira são naturalmente procuradas por sua beleza e pela sensação de bem-estar que transmitem. Mas nunca se esqueça de que são um componente técnico importante do seu projeto e que fatores como estabilidade dimensional, resistência e durabilidade desempenham um papel crucial. É por isso que você deve fazer uma distinção importante entre a madeira maciça e a madeira engenheirada.</p>
+      </div>
+
+      <div class="tradicional-sub">
+        <h3 class="tradicional-subtitle fade-up">Madeira maciça</h3>
+        <img src="estavel.png" alt="Madeira maciça" class="tradicional-img fade-up" data-mouse-parallax="30" loading="lazy" decoding="async">
+        <div class="multicamadas-text">
+          <p class="fade-up">A madeira maciça nada mais é do que uma peça inteiriça, sem qualquer tratamento que possa aumentar sua estabilidade. O que é uma vantagem em um móvel antigo, por exemplo, é uma limitação tecnológica em marcenarias, onde a madeira é sinônimo de tensão e movimento. Essa falta de tratamento a torna especialmente sensível a mudanças de umidade e, portanto, sujeita a empenamento. E, à medida que a espessura da peça aumenta, essa reação tende a se acentuar. O risco é o aparecimento de rachaduras ou fendas antiestéticas e até mesmo, em casos mais extremos, o desprendimento. É por isso que seu uso não é recomendado em ambientes sujeitos a grandes variações de umidade.</p>
+        </div>
+      </div>
+
+      <div class="tradicional-sub">
+        <h3 class="tradicional-subtitle fade-up">Madeira engenheirada</h3>
+        <img src="Engenheirado.png" alt="Madeira engenheirada" class="tradicional-img fade-up" data-mouse-parallax="30" loading="lazy" decoding="async">
+        <div class="multicamadas-text">
+          <p class="fade-up">A madeira engenheirada é feita 100% de madeira pura, com uma estrutura desenvolvida para unir beleza e desempenho. Sua camada superior valoriza a aparência natural da madeira, enquanto a base proporciona maior estabilidade e resistência às variações de umidade. Essa tecnologia permite peças maiores e mais estáveis, oferecendo mais sofisticação estética e melhor desempenho técnico em diferentes aplicações.</p>
+        </div>
+      </div>
+
+      <div class="tradicional-sub">
+        <h3 class="tradicional-subtitle fade-up">Como a madeira reage?</h3>
+        <img src="porta.webp" alt="Reação da madeira à umidade e temperatura" class="tradicional-img is-porta fade-up" data-mouse-parallax="30" loading="lazy" decoding="async">
+        <div class="multicamadas-text">
+          <p class="fade-up">A madeira é um elemento vivo e, como tal, sensível, reagindo constantemente ao ambiente circundante. É especialmente sensível às variações de umidade e, até certo ponto, adapta-se, ajustando-se lenta e imperceptivelmente por meio de uma série de movimentos que, a longo prazo, alteram suas dimensões. É fácil perceber como essa resposta natural pode ser um problema quando aplicada em marcenarias, regularmente sujeitas a variações de temperatura e umidade. Felizmente, pesquisas trouxeram soluções para esse problema. Com a evolução da madeira engenheirada moderna, beleza e segurança finalmente podem coexistir em perfeita harmonia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GUIA TÉCNICO (oculto temporariamente — reativar removendo o atributo hidden) ─── -->
+  <section hidden class="relative z-20 bg-black text-white">
+    <div class="px-12 max-w-screen-2xl mx-auto pt-32 pb-32">
+      <div class="border-t border-white/10 pt-16">
+        <span class="eyebrow block mb-6">Guia Técnico</span>
+        <h2 class="display-title text-[clamp(2.5rem,4vw,5rem)] mb-20 max-w-3xl">Madeira, um material vivo</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-20">
+          <div class="flex flex-col gap-20">
+            <div class="fade-up">
+              <div class="w-fit">
+                <div class="flex items-center gap-2 mb-6">
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10" style="background:#3a2414;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10" style="background:#5c3a22;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10" style="background:#7d5536;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10" style="background:#9a7758;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10" style="background:#b69c82;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10" style="background:#d0bba5;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10" style="background:#ead8c3;"></div>
+                </div>
+                <div class="flex items-center justify-between text-[8.5px] md:text-[10px] uppercase tracking-[0.3em] text-white/40">
+                  <span>Escuro</span><span>Claro</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Cor
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>A cor da madeira vem dos extrativos que ela contém. A exposição ao ar e à luz modifica esses extrativos, transformando a cor original do parquete ao longo do tempo. Espécies tropicais, por conterem mais extrativos, evoluem para marrons mais escuros.</p>
+                <p>Iroko e Parket apresentam as mudanças mais intensas — tábuas originalmente semelhantes podem assumir tonalidades distintas. O Teak varia bastante no início mas se uniformiza com o tempo; o Wengé mantém boa estabilidade de cor.</p>
+                <p>Com a luz, a madeira tende ao amarelo, mesmo em acabamentos pigmentados. Exposição solar direta e intensa pode causar descoloração — recomenda-se o uso de cortinas ou filmes UV nos vidros.</p>
+              </div>
+            </div>
+
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Grão Prateado
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>Tábuas cortadas em seção radial do tronco apresentam grão reto e reflexos iridescentes — o chamado grão prateado, historicamente valorizado como indicador de qualidade e prestígio.</p>
+                <p>A madeira é um material vivo, influenciado por luz, temperatura, umidade e uso. Além da estética, o grão prateado indica melhor desempenho técnico: estabilidade dimensional e impermeabilidade.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-20">
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Amostras
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>A madeira é um material natural e variegado: cada peça é única. Amostras compostas por poucas tábuas fornecem apenas uma ideia geral do parquete, sem representar fielmente todas as nuances e veios.</p>
+                <p>A cor muda com o tempo por exposição à luz e ao ar — um piso recém-instalado pode ter aparência diferente de uma amostra já exposta.</p>
+              </div>
+            </div>
+
+            <div class="fade-up p-10 flex flex-col items-center" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+              <div class="flex items-center gap-12 mb-4 text-2xl">
+                <span>☀️</span><span>🌧️</span>
+              </div>
+              <div class="flex items-center gap-4 w-full">
+                <span class="text-[10px] uppercase tracking-[0.3em] text-white/50 whitespace-nowrap">Clima<br>Seco</span>
+                <svg class="w-2.5 h-2.5 text-white/40 flex-shrink-0" viewBox="0 0 10 10" fill="currentColor"><polygon points="8,1 8,9 2,5"/></svg>
+                <div class="flex-1 h-12" style="background: linear-gradient(to right, #b98862 0%, #d9ab87 50%, #b98862 100%); clip-path: polygon(0 30%, 100% 10%, 100% 90%, 0 70%);"></div>
+                <svg class="w-2.5 h-2.5 text-white/40 flex-shrink-0" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 2,9 8,5"/></svg>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-white/50 whitespace-nowrap">Clima<br>Úmido</span>
+              </div>
+              <div class="mt-4 text-[10px] uppercase tracking-[0.3em] text-white/50 flex items-center gap-2">
+                <svg class="w-2 h-2" viewBox="0 0 10 10" fill="currentColor"><polygon points="1,2 9,2 5,8"/></svg>
+                Retração / Dilatação
+                <svg class="w-2 h-2" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,2 9,8 1,8"/></svg>
+              </div>
+            </div>
+
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Condições Climáticas
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>A madeira dilata e retrai conforme umidade e temperatura. O ideal é manter o ar entre 15°C e 30°C e a umidade relativa entre 45% e 65% — faixa também ideal para as pessoas — durante e após a instalação.</p>
+                <p>No inverno pode ser necessário umidificar o ar. Em pisos com aquecimento, a superfície nunca deve ultrapassar 27°C; evite cobri-la com tapetes grossos que retenham calor.</p>
+                <p>Produtos Parket com suporte de compensado de bétula (ver Especificações Técnicas) toleram condições mais severas — umidade a partir de 30% e superfície até 29°C — mantendo a integridade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Lightbox ─── -->
+  <div id="lightbox">
+    <button class="lb-btn lb-close" onclick="closeLightbox()"><span class="material-symbols-outlined">close</span></button>
+    <button class="lb-btn lb-prev" onclick="lbPrev()"><span class="material-symbols-outlined">chevron_left</span></button>
+    <img decoding="async" id="lightbox-img" src="" alt="Zoom">
+    <button class="lb-btn lb-next" onclick="lbNext()"><span class="material-symbols-outlined">chevron_right</span></button>
+  </div>
+
+  <script>window.PARKET_FILTER = 'portas';</script>
+  <script defer src="catalogo.js"></script>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://parket.com.br">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <title>Parket - Busca</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="assets/js/components.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: { fontFamily: { headline: ["Inter"], body: ["Inter"], label: ["Inter"] } } }
+    }
+  </script>
+  <style>
+    body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+    .carousel-viewport {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 55vh;
+      max-height: 560px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .carousel-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      transform: scale(1.04);
+    }
+    .carousel-slide.active { opacity: 1; transform: scale(1); z-index: 1; }
+    .carousel-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      background: #000;
+    }
+    .slide-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 28px 32px 22px;
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      text-align: left;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .slide-caption .cap-cat {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+    }
+    .slide-caption .cap-name {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.85);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.25s ease;
+    }
+    .nav-arrow:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .nav-arrow.prev { left: 16px; }
+    .nav-arrow.next { right: 16px; }
+
+    .thumb-track {
+      display: flex; gap: 8px;
+      overflow-x: auto; scroll-behavior: smooth;
+      padding: 4px 0;
+      justify-content: safe center;
+    }
+    .thumb-track::-webkit-scrollbar { display: none; }
+    .thumb {
+      flex-shrink: 0;
+      width: 72px; height: 72px;
+      overflow: hidden;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      opacity: 0.4;
+      transition: opacity 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
+    }
+    .thumb:hover { opacity: 0.7; transform: scale(1.08); }
+    .thumb.active { opacity: 1; border-color: rgba(255,255,255,0.7); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .progress-bar {
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: rgba(255,255,255,0.6);
+      transition: width 0.3s ease;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+  <parket-seo title="Parket Busca"></parket-seo>
+</head>
+<body class="antialiased selection:bg-white selection:text-black">
+  <parket-loader></parket-loader>
+  <parket-nav return-url="catalogo.html" return-text="Voltar ao Catálogo" category=""></parket-nav>
+
+  <main class="pt-32 pb-40 px-12 max-w-screen-2xl mx-auto">
+    <div class="fade-up mb-12">
+      <span class="font-label uppercase tracking-[0.5em] text-[10px] text-white/30 mb-6 block">Busca</span>
+      <h1 class="text-[29.28px] font-extralight tracking-[-0.04em] leading-[0.85] mb-6">
+        Resultados para <span id="query-text" class="italic"></span>
+      </h1>
+      <p id="result-count" class="text-white/40 text-sm font-light tracking-wide"></p>
+    </div>
+
+    <!-- Carousel -->
+    <div id="carousel-wrap" class="fade-up" style="transition-delay: 0.15s">
+      <div class="carousel-viewport" id="carousel"></div>
+      <div class="max-w-[900px] mx-auto">
+        <div class="flex items-center gap-6 mt-6">
+          <div class="progress-bar flex-1"><div class="progress-fill" id="progress-fill"></div></div>
+        </div>
+        <div class="thumb-track mt-6" id="thumb-track"></div>
+      </div>
+    </div>
+
+    <div id="no-results" class="hidden text-center py-24">
+      <p class="text-white/50 text-lg font-light">Nenhuma foto encontrada.</p>
+      <p class="text-white/30 text-sm mt-2">Tente outros termos ou volte ao catálogo.</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const query = (params.get('q') || '').trim();
+      document.getElementById('query-text').textContent = query ? `"${query}"` : '';
+      document.title = query ? `Parket - Busca: ${query}` : 'Parket - Busca';
+
+      const matches = query
+        ? PARKET_PHOTOS.filter(p => parketFuzzyMatch(query, `${p.cat} ${p.name}`))
+        : [];
+
+      const countEl = document.getElementById('result-count');
+      countEl.textContent = matches.length
+        ? `${matches.length} ${matches.length === 1 ? 'foto encontrada' : 'fotos encontradas'}`
+        : '';
+
+      if (!matches.length) {
+        document.getElementById('carousel-wrap').classList.add('hidden');
+        document.getElementById('no-results').classList.remove('hidden');
+        document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const carousel = document.getElementById('carousel');
+      const thumbTrack = document.getElementById('thumb-track');
+      const progressFill = document.getElementById('progress-fill');
+      let current = 0;
+      let timer = null;
+
+      matches.forEach((p, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide' + (i === 0 ? ' active' : '');
+        slide.style.cursor = 'zoom-in';
+        slide.innerHTML = `
+          <img loading="lazy" decoding="async" src="${p.src}" alt="${p.name}">
+          <div class="slide-caption">
+            <span class="cap-cat">${p.cat}</span>
+            <span class="cap-name">${p.name}</span>
+          </div>
+        `;
+        slide.addEventListener('click', () => {
+          if (window.openParketLightbox) window.openParketLightbox(p.src);
+        });
+        carousel.appendChild(slide);
+
+        const thumb = document.createElement('div');
+        thumb.className = 'thumb' + (i === 0 ? ' active' : '');
+        thumb.innerHTML = `<img loading="lazy" decoding="async" src="${p.src}" alt="Thumb ${i+1}">`;
+        thumb.addEventListener('click', () => goTo(i));
+        thumbTrack.appendChild(thumb);
+      });
+
+      function goTo(idx) {
+        if (idx < 0) idx = matches.length - 1;
+        if (idx >= matches.length) idx = 0;
+        current = idx;
+        carousel.querySelectorAll('.carousel-slide').forEach((s, i) => s.classList.toggle('active', i === current));
+        thumbTrack.querySelectorAll('.thumb').forEach((t, i) => {
+          t.classList.toggle('active', i === current);
+          if (i === current) {
+            const tr = thumbTrack.getBoundingClientRect();
+            const rr = t.getBoundingClientRect();
+            thumbTrack.scrollTo({ left: thumbTrack.scrollLeft + (rr.left - tr.left) - thumbTrack.clientWidth/2 + rr.width/2, behavior: 'smooth' });
+          }
+        });
+        progressFill.style.width = `${((current+1) / matches.length) * 100}%`;
+      }
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+
+      // touch swipe
+      let touchStartX = 0;
+      carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+      }, { passive: true });
+
+      // autoplay
+      function start() { if (!timer) timer = setInterval(next, 5500); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      start();
+
+      progressFill.style.width = `${(1 / matches.length) * 100}%`;
+      requestAnimationFrame(() => document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')));
+    })();
+  </script>
+</body>
+</html>

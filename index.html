@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Parket — Portas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload" as="image" href="autoload/Hero.webp" fetchpriority="high">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back,arrow_upward,chevron_left,chevron_right,close,search&display=swap" rel="stylesheet">
+  <script src="assets/js/components.js"></script>
+  <parket-seo is-main></parket-seo>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          borderRadius: { "DEFAULT": "0", "lg": "0", "xl": "0", "full": "9999px" },
+          colors: { "surface": "#131313", "background": "#000000", "primary": "#ffffff" },
+          fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="catalogo.css?v=4">
+  <link rel="stylesheet" href="index.css?v=31">
+</head>
+
+<body class="antialiased selection:bg-white selection:text-black">
+
+  <parket-nav return-url="index.html" return-text=""></parket-nav>
+
+  <!-- Nav bar fixa transparente -->
+  <header class="topbar">
+
+    <a href="#" class="topbar-logo-link" aria-label="Parket">
+      <img decoding="async" src="logo-parket.webp" alt="Parket" class="topbar-logo">
+    </a>
+  </header>
+
+  <!-- Menu de coleções (aberto pelo hambúrguer) -->
+
+
+  <!-- Side index (right) -->
+  <nav id="side-index" class="side-index" aria-label="Índice"></nav>
+
+  <!-- Floating actions -->
+  <button id="back-to-top" class="floating-action" type="button" aria-label="Voltar ao topo">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- ─── HERO · imagem full-bleed que desliza para o lado revelando o título ─── -->
+  <section id="hero-viewport" class="hero-split">
+    <div id="hero-sticky">
+      <div id="hero-bg" class="hero-media" style="background-image: url('autoload/Hero.webp');"></div>
+      <span class="hero-wordmark" aria-hidden="true">porta</span>
+      <div id="hero-content" class="hero-copy">
+        <span class="hero-eyebrow">Coleção 2026</span>
+        <h1 class="hero-title">A madeira que<br>atravessa <span class="accent">gerações</span>.</h1>
+      </div>
+      <div class="hero-scroll-hint">
+        <span class="hero-scroll-label">Role para escolher</span>
+        <span class="hero-scroll-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SOBRE + PORQUE · seção única sobre o tronco (anéis) ══════════ -->
+  <section id="sobre" aria-label="Sobre a Parket">
+    <div class="sobre-wrap">
+
+      <header class="sobre-head fade">
+        <span class="eyebrow">Sobre a Parket</span>
+        <h2 class="sobre-title">
+          Meio século transformando madeira em <span class="accent">legado</span>.
+        </h2>
+      </header>
+
+      <div class="sobre-intro">
+        <p class="corpo-text fade">
+          A Parket nasceu da convicção de que a madeira é a expressão mais autêntica da arquitetura brasileira.
+          Cada projeto que desenvolvemos representa o encontro entre a visão do arquiteto, a excelência técnica
+          e a essência da matéria-prima.
+        </p>
+        <p class="corpo-text fade">
+          Trabalhamos exclusivamente com madeiras de origem legal e manejo sustentável, processos industriais de
+          alta precisão e uma equipe especializada que entende que cada detalhe faz diferença. Nosso compromisso é entregar superfícies que atravessam o tempo, valorizando a arquitetura com a autenticidade da madeira, a precisão da engenharia e a excelência em cada detalhe.
+        </p>
+      </div>
+
+      <div class="sobre-pilares">
+        <article class="sobre-pilar fade">
+          <span class="sobre-pilar-num">01</span>
+          <h3 class="sobre-pilar-title">Origem responsável</h3>
+          <p>Madeira de origem legal e manejo sustentável, com certificação FSC. Respeito à floresta em cada régua
+            que produzimos.</p>
+        </article>
+        <article class="sobre-pilar fade" style="transition-delay:.08s">
+          <span class="sobre-pilar-num">02</span>
+          <h3 class="sobre-pilar-title">Precisão industrial</h3>
+          <p>Processos de alta tecnologia e controle rigoroso, aliados ao artesanato de uma equipe especializada
+            em cada detalhe.</p>
+        </article>
+        <article class="sobre-pilar fade" style="transition-delay:.16s">
+          <span class="sobre-pilar-num">03</span>
+          <h3 class="sobre-pilar-title">Legado duradouro</h3>
+          <p>Superfícies concebidas para atravessar gerações, mantendo desempenho e a mesma elegância do
+            primeiro dia.</p>
+        </article>
+      </div>
+
+      <div class="sobre-stats fade" role="list">
+        <div class="stat" role="listitem">
+          <span class="stat-num">50<sup>+</sup></span>
+          <span class="stat-label">anos de tradição</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num">FSC</span>
+          <span class="stat-label">madeira certificada</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num">100<sup>%</sup></span>
+          <span class="stat-label">madeira natural</span>
+        </div>
+      </div>
+
+      <div class="porque-block">
+        <div class="porque-head fade">
+          <span class="eyebrow">O diferencial</span>
+          <h2 class="porque-title">
+            Por que escolher a <span translate="no" class="notranslate accent">Parket</span>?
+          </h2>
+        </div>
+        <div class="porque-body">
+          <p class="corpo-text fade">
+            Em um mundo marcado pela velocidade e pelo excesso de informações, reconhecer a verdadeira qualidade
+            tornou-se um diferencial. A excelência está nos detalhes, na tradição e no cuidado dedicado à criação
+            de pisos de madeira nobre concebidos para durar por gerações.
+          </p>
+          <p class="corpo-text fade" style="transition-delay:.08s">
+            Escolher a <span translate="no" class="notranslate">Parket</span> é valorizar conhecimento, artesanato,
+            inovação, tecnologia e autenticidade. É investir em um produto que une desempenho, sofisticação e respeito
+            à natureza, preservando a beleza da madeira e transformando cada ambiente em um legado duradouro.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── ARVORE ─── -->
+
+  <!-- ─── ESCOLHA UM PRODUTO ─── -->
+  <section id="products-index" class="index-block">
+    <div class="w-full max-w-screen-xl mx-auto">
+      <span class="eyebrow block mb-10 fade-up">Índice</span>
+      <h2 class="display-title text-[clamp(1.5rem,3vw,2.4rem)] mb-14 text-white/70 fade-up"
+        style="transition-delay: 0.05s">
+        Escolha um produto:
+      </h2>
+      <nav id="products-nav" class="index-list fade-up" style="transition-delay: 0.12s"></nav>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCT SECTIONS (injected) ─── -->
+  <main id="products" class="relative z-10 bg-black"></main>
+  <!-- ═══ 02 TECNOLOGIA · animação de camadas por scroll ═══ -->
+  <section data-screen-label="Tecnologia animada" id="tech-scroll">
+    <div class="tech-sticky">
+      <div class="tech-head">
+        <div>
+
+          <h2 class="tech-title">Você chamaria isso simplesmente de <span class="tech-accent">piso de madeira</span>?
+          </h2>
+        </div>
+        <span class="tech-hint">Continue rolando ↓</span>
+      </div>
+      <div class="tech-body">
+        <!-- palco 3D -->
+        <div class="tech-stage">
+          <div class="tech-stack">
+            <div data-plank="0"></div>
+            <div data-plank="1"></div>
+            <div data-plank="2"></div>
+            <div data-plank="3" style="transform: translateZ(58.1px);"></div>
+          </div>
+          <div class="tech-plank-shadow" data-plank-shadow></div>
+        </div>
+        <!-- legendas sequenciais -->
+        <div class="tech-labels">
+          <div data-tech-label="0">
+            <div class="tech-label-head"><span class="tech-label-num">01</span>
+              <h3 class="tech-label-name">Camada nobre</h3>
+            </div>
+            <p class="tech-label-text">Madeira tropical brasileira selecionada. É ela que define cor, textura e desenho
+              natural do piso. Recebe acabamento em Verniz UV ou Laca OIL.</p>
+          </div>
+          <div data-tech-label="1">
+            <div class="tech-label-head"><span class="tech-label-num">02</span>
+              <h3 class="tech-label-name">Lamelas cruzadas</h3>
+            </div>
+            <p class="tech-label-text">Camadas coladas com os veios em direções alternadas: uma trava a outra e
+              neutraliza a expansão e a contração natural da madeira.</p>
+          </div>
+          <div data-tech-label="2">
+            <div class="tech-label-head"><span class="tech-label-num">03</span>
+              <h3 class="tech-label-name">Colagem estrutural</h3>
+            </div>
+            <p class="tech-label-text">Adesivo de alta resistência une as camadas, protege contra a umidade e sustenta a
+              estabilidade do conjunto ao longo do tempo.</p>
+          </div>
+          <div data-tech-label="3">
+            <div class="tech-label-head"><span class="tech-label-num">04</span>
+              <h3 class="tech-label-name">Especificações</h3>
+            </div>
+            <p class="tech-label-text">Réguas multicamadas de 15,08 mm, em larguras de 100, 190 e 300 mm e
+              comprimentos de até 3.000 mm. Acabamento em Verniz UV ou Laca OIL.</p>
+          </div>
+          <div data-tech-label="4">
+            <div class="tech-label-head">
+              <h3 class="tech-label-name">O Resultado</h3>
+            </div>
+            <p class="tech-label-text">100% madeira tropical brasileira, com estabilidade para réguas maiores.
+              Beleza na superfície, engenharia por dentro.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── MADEIRAS · tradicional vs engenheirado (piso 3D fechado e girável) ─── -->
+  <section id="madeiras-tipos" data-screen-label="Tipos de piso">
+    <div class="mtipos-inner">
+      <!-- topo: título + intro à esquerda, piso 3D à direita -->
+      <div class="mtipos-top">
+        <div class="mtipos-copy">
+          <header class="mtipos-head fade-up">
+            <span class="mtipos-eyebrow">Sobre as madeiras</span>
+            <h2 class="mtipos-title">Piso tradicional ou piso engenheirado?
+              <span class="mtipos-sub">Entenda as diferenças</span>
+            </h2>
+          </header>
+
+          <div class="mtipos-intro">
+            <p class="fade-up">Hoje existem diversos tipos de pisos de madeira no mercado, com diferentes dimensões,
+              espécies, acabamentos e tecnologias. Por isso, a escolha não deve ser baseada apenas na estética.</p>
+            <p class="fade-up" style="transition-delay:.06s">Além da beleza e da sensação de aconchego que a madeira
+              proporciona, o piso é um elemento técnico da construção. Características como estabilidade dimensional,
+              resistência às variações de umidade, espessura e desempenho ao longo do tempo fazem toda a diferença.</p>
+            <p class="mtipos-lead fade-up" style="transition-delay:.12s">A principal comparação é entre o piso tradicional
+              e o piso engenheirado.</p>
+          </div>
+        </div>
+
+        <!-- piso 3D reaproveitado: fechado e arrastável com o mouse -->
+        <div class="mtipos-3d fade-up">
+          <div class="mtipos-stage" data-floor3d>
+            <div class="mtipos-stack" data-floor3d-stack>
+              <div class="floor-face floor-top"></div>
+              <div class="floor-face floor-bottom"></div>
+              <div class="floor-face floor-edge floor-edge-f"></div>
+              <div class="floor-face floor-edge floor-edge-l"></div>
+              <div class="floor-face floor-edge floor-edge-r"></div>
+              <!-- encaixe: só a fêmea (rebaixo recuado PARA DENTRO) na borda traseira.
+                   Sem lingueta projetada = sem z-fighting no preserve-3d, gira livre. -->
+              <div class="floor-face floor-edge floor-groove-lip floor-groove-lip-up"></div>
+              <div class="floor-face floor-edge floor-groove-lip floor-groove-lip-lo"></div>
+              <div class="floor-face floor-groove floor-groove-inner"></div>
+              <div class="floor-face floor-groove floor-groove-floor"></div>
+              <div class="floor-face floor-groove floor-groove-ceil"></div>
+            </div>
+            <div class="mtipos-shadow" data-floor3d-shadow></div>
+          </div>
+          <p class="mtipos-3d-hint">
+            <svg viewBox="0 0 40 12" aria-hidden="true">
+              <path d="M6 6h28M6 6l4-4M6 6l4 4M34 6l-4-4M34 6l-4 4" />
+            </svg>
+            <span>Arraste para girar o piso</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="mtipos-cards">
+
+  <!-- Piso Tradicional -->
+  <article class="mtipos-card fade-up visible">
+
+    <span class="mtipos-badge">Madeira Maciça</span>
+
+    <h3 class="mtipos-card-title">Piso Tradicional</h3>
+
+    <p class="mtipos-intro">
+      Produzido a partir de uma única peça de madeira, preservando toda a
+      autenticidade e a beleza natural da matéria-prima.
+    </p>
+
+    <div class="mtipos-divider"></div>
+
+    <h4>Características</h4>
+
+    <ul class="mtipos-list">
+      <li>Peça única de madeira maciça</li>
+      <li>Visual totalmente natural</li>
+      <li>Movimentação natural da madeira</li>
+      <li>Pode apresentar frestas e empenamentos</li>
+      <li>Mais indicado para ambientes com clima estável</li>
+    </ul>
+
+    <div class="mtipos-footer">
+      <h4>Ideal para</h4>
+      <p>Projetos que valorizam a autenticidade da madeira maciça.</p>
+    </div>
+
+  </article>
+
+  <!-- Piso Engenheirado -->
+  <article class="mtipos-card mtipos-card--eng fade-up visible" style="transition-delay:.08s">
+
+    <span class="mtipos-badge">Alta Estabilidade</span>
+
+    <h3 class="mtipos-card-title">Piso Engenheirado</h3>
+
+    <p class="mtipos-intro">
+      Estrutura multicamadas desenvolvida para reduzir movimentações naturais,
+      mantendo toda a beleza e a textura da madeira nobre.
+    </p>
+
+    <div class="mtipos-divider"></div>
+
+    <h4>Vantagens</h4>
+
+    <ul class="mtipos-list">
+      <li>100% madeira natural</li>
+      <li>Estrutura multicamadas</li>
+      <li>Maior estabilidade dimensional</li>
+      <li>Resistência às variações climáticas</li>
+      <li>Permite réguas maiores e ambientes sofisticados</li>
+      <li>Excelente desempenho em diferentes instalações</li>
+    </ul>
+
+    <div class="mtipos-footer">
+      <h4g>Ideal para</h4>
+      <p>Residências e projetos de alto padrão que exigem máxima estabilidade.</p>
+    </div>
+
+  </article>
+
+</div>
+      <p class="mtipos-outro fade-up">O resultado é um piso que mantém a elegância da madeira maciça, mas com desempenho
+        superior, oferecendo mais segurança, conforto e estabilidade para o dia a dia.</p>
+
+      <!-- Bloco final: como a madeira reage -->
+      <div class="mtipos-react">
+        <div class="mtipos-react-head fade-up">
+          <span class="mtipos-eyebrow">Reação da madeira à umidade e à temperatura</span>
+          <h3 class="mtipos-react-title">Como o piso de madeira reage?</h3>
+        </div>
+        <div class="mtipos-react-body">
+          <p class="fade-up">A madeira é um elemento vivo e, como tal, sensível, reagindo constantemente ao ambiente ao
+            seu redor. É especialmente sensível às variações de umidade e, até certo ponto, adapta-se, ajustando-se de
+            forma lenta e quase imperceptível por meio de uma série de movimentos que, ao longo do tempo, alteram suas
+            dimensões.</p>
+          <p class="fade-up" style="transition-delay:.06s">É fácil perceber como essa resposta natural pode representar
+            um desafio quando utilizada em pisos, que estão regularmente sujeitos a grandes variações de temperatura em
+            superfícies extensas, além da presença frequente de umidade.</p>
+          <p class="fade-up" style="transition-delay:.12s">Felizmente, a pesquisa e o desenvolvimento trouxeram soluções
+            para esse comportamento natural. Com a evolução dos pisos engenheirados modernos, a madeira e a estabilidade
+            finalmente podem coexistir em perfeita harmonia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TEXTURAS · réguas que trocam com o scroll ─── -->
+  <section data-screen-label="Texturas" id="texturas" class="texturas-scroll" aria-label="Texturas das espécies">
+    <div class="texturas-stage">
+      <div class="texturas-copy">
+        <span class="texturas-eyebrow">Texturas</span>
+        <h2 class="texturas-nome" id="texturas-nome" aria-live="polite">&nbsp;</h2>
+        <p class="texturas-frase" id="texturas-desc" aria-live="polite">&nbsp;</p>
+        <p class="texturas-contador"><span id="texturas-atual">01</span><span class="texturas-sep">/</span><span
+            id="texturas-total">14</span></p>
+      </div>
+      <div class="texturas-palco">
+        <button class="texturas-seta texturas-seta--prev" type="button" data-dir="-1" aria-label="Textura anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8" /></svg>
+        </button>
+        <div class="texturas-regua" id="texturas-regua" aria-hidden="true"></div>
+        <button class="texturas-seta texturas-seta--next" type="button" data-dir="1" aria-label="Próxima textura">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8" /></svg>
+        </button>
+        <p class="texturas-dica" aria-hidden="true">
+          <span class="texturas-dica-icone">
+            <svg viewBox="0 0 40 12" aria-hidden="true">
+              <path d="M6 6h28M6 6l4-4M6 6l4 4M34 6l-4-4M34 6l-4 4" />
+            </svg>
+          </span>
+          <span>Deslize para os lados</span>
+        </p>
+      </div>
+      <div class="texturas-trilha" aria-hidden="true"><span id="texturas-trilha-fill"></span></div>
+    </div>
+  </section>
+
+  <!-- ─── GUIA TÉCNICO (oculto temporariamente — reativar removendo o atributo hidden) ─── -->
+  <section hidden class="relative z-20 bg-black text-white">
+    <div class="px-12 max-w-screen-2xl mx-auto pt-32 pb-32">
+      <div class="border-t border-white/10 pt-16">
+        <span class="eyebrow block mb-6">Guia Técnico</span>
+        <h2 class="display-title text-[clamp(2.5rem,4vw,5rem)] mb-20 max-w-3xl">Madeira, um material vivo</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-20">
+          <div class="flex flex-col gap-20">
+            <div class="fade-up">
+              <div class="w-fit">
+                <div class="flex items-center gap-2 mb-6">
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10"
+                    style="background:#3a2414;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10"
+                    style="background:#5c3a22;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10"
+                    style="background:#7d5536;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10"
+                    style="background:#9a7758;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10"
+                    style="background:#b69c82;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10"
+                    style="background:#d0bba5;"></div>
+                  <div class="w-[40.8px] h-[40.8px] md:w-12 md:h-12 rounded-full border border-white/10"
+                    style="background:#ead8c3;"></div>
+                </div>
+                <div
+                  class="flex items-center justify-between text-[8.5px] md:text-[10px] uppercase tracking-[0.3em] text-white/40">
+                  <span>Escuro</span><span>Claro</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Cor
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>A cor da madeira vem dos extrativos que ela contém. A exposição ao ar e à luz modifica esses
+                  extrativos, transformando a cor original do parquete ao longo do tempo. Espécies tropicais, por
+                  conterem mais extrativos, evoluem para marrons mais escuros.</p>
+                <p>Iroko e Parket apresentam as mudanças mais intensas — tábuas originalmente semelhantes podem assumir
+                  tonalidades distintas. O Teak varia bastante no início mas se uniformiza com o tempo; o Wengé mantém
+                  boa estabilidade de cor.</p>
+                <p>Com a luz, a madeira tende ao amarelo, mesmo em acabamentos pigmentados. Exposição solar direta e
+                  intensa pode causar descoloração — recomenda-se o uso de cortinas ou filmes UV nos vidros.</p>
+              </div>
+            </div>
+
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Grão Prateado
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>Tábuas cortadas em seção radial do tronco apresentam grão reto e reflexos iridescentes — o chamado
+                  grão prateado, historicamente valorizado como indicador de qualidade e prestígio.</p>
+                <p>A madeira é um material vivo, influenciado por luz, temperatura, umidade e uso. Além da estética, o
+                  grão prateado indica melhor desempenho técnico: estabilidade dimensional e impermeabilidade.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-20">
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Amostras
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>A madeira é um material natural e variegado: cada peça é única. Amostras compostas por poucas tábuas
+                  fornecem apenas uma ideia geral do parquete, sem representar fielmente todas as nuances e veios.</p>
+                <p>A cor muda com o tempo por exposição à luz e ao ar — um piso recém-instalado pode ter aparência
+                  diferente de uma amostra já exposta.</p>
+              </div>
+            </div>
+
+            <div class="fade-up p-10 flex flex-col items-center"
+              style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+              <div class="flex items-center gap-12 mb-4 text-2xl">
+                <span>☀️</span><span>🌧️</span>
+              </div>
+              <div class="flex items-center gap-4 w-full">
+                <span
+                  class="text-[10px] uppercase tracking-[0.3em] text-white/50 whitespace-nowrap">Clima<br>Seco</span>
+                <svg class="w-2.5 h-2.5 text-white/40 flex-shrink-0" viewBox="0 0 10 10" fill="currentColor">
+                  <polygon points="8,1 8,9 2,5" />
+                </svg>
+                <div class="flex-1 h-12"
+                  style="background: linear-gradient(to right, #b98862 0%, #d9ab87 50%, #b98862 100%); clip-path: polygon(0 30%, 100% 10%, 100% 90%, 0 70%);">
+                </div>
+                <svg class="w-2.5 h-2.5 text-white/40 flex-shrink-0" viewBox="0 0 10 10" fill="currentColor">
+                  <polygon points="2,1 2,9 8,5" />
+                </svg>
+                <span
+                  class="text-[10px] uppercase tracking-[0.3em] text-white/50 whitespace-nowrap">Clima<br>Úmido</span>
+              </div>
+              <div class="mt-4 text-[10px] uppercase tracking-[0.3em] text-white/50 flex items-center gap-2">
+                <svg class="w-2 h-2" viewBox="0 0 10 10" fill="currentColor">
+                  <polygon points="1,2 9,2 5,8" />
+                </svg>
+                Retração / Dilatação
+                <svg class="w-2 h-2" viewBox="0 0 10 10" fill="currentColor">
+                  <polygon points="5,2 9,8 1,8" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="fade-up">
+              <h3 class="font-label uppercase tracking-[0.3em] text-[10px] text-white/50 mb-6 flex items-center gap-2">
+                <span class="w-1 h-1 bg-white/50 rounded-full"></span> Condições Climáticas
+              </h3>
+              <div class="text-white/50 text-sm font-light leading-relaxed space-y-4 max-w-xl">
+                <p>A madeira dilata e retrai conforme umidade e temperatura. O ideal é manter o ar entre 15°C e 30°C e a
+                  umidade relativa entre 45% e 65% — faixa também ideal para as pessoas — durante e após a instalação.
+                </p>
+                <p>No inverno pode ser necessário umidificar o ar. Em pisos com aquecimento, a superfície nunca deve
+                  ultrapassar 27°C; evite cobri-la com tapetes grossos que retenham calor.</p>
+                <p>Produtos Parket com suporte de compensado de bétula (ver Especificações Técnicas) toleram condições
+                  mais severas — umidade a partir de 30% e superfície até 29°C — mantendo a integridade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img decoding="async" src="logo-parket.webp" alt="Parket" class="footer-logo" loading="lazy">
+          <p class="footer-tagline">
+            Meio século transformando madeira em legado. Pisos, forros, painéis,
+            escadas e portas em madeira nobre de manejo responsável.
+          </p>
+          <ul class="footer-seals">
+            <li>FSC · Madeira certificada</li>
+            <li>100% madeira natural</li>
+          </ul>
+          <a class="footer-site" href="https://parket.com.br" target="_blank" rel="noopener">parket.com.br</a>
+        </div>
+
+        <nav class="footer-nav" aria-label="Rodapé">
+          <div class="footer-col">
+            <h2 class="footer-col-title">Navegue</h2>
+            <ul>
+              <li><a href="#sobre">Sobre a Parket</a></li>
+
+              <li><a href="#tech-scroll">Tecnologia</a></li>
+              <li><a href="#texturas">Texturas</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2 class="footer-col-title">Coleção</h2>
+            <ul>
+
+              <li><a href="#produto-portas">Portas</a></li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© <span id="footer-year">2026</span> <span translate="no"
+            class="notranslate">Parket</span>. Todos os direitos reservados.</span>
+        <span class="footer-meta">Catálogo Coleção 2026 · São Paulo, Brasil</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ─── Lightbox ─── -->
+  <div id="lightbox">
+    <button class="lb-btn lb-close" onclick="closeLightbox()"><span
+        class="material-symbols-outlined">close</span></button>
+    <button class="lb-btn lb-prev" onclick="lbPrev()"><span
+        class="material-symbols-outlined">chevron_left</span></button>
+    <img decoding="async" id="lightbox-img" src="" alt="Zoom">
+    <button class="lb-btn lb-next" onclick="lbNext()"><span
+        class="material-symbols-outlined">chevron_right</span></button>
+  </div>
+
+  <script>
+    window.PARKET_FILTER = 'portas';
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+  <script defer src="index.js?v=8"></script>
+  <script defer src="catalogo.js?v=10"></script>
+</body>
+
+</html>
