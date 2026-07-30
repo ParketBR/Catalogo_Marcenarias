@@ -1129,21 +1129,21 @@
   backface-visibility: hidden;
 }
 
-/* frente e verso — madeira nobre com ripado vertical (marcenaria) */
+/* frente e verso — Freijó com ripado fino no sentido da altura.
+   A textura já é retrato e com veio vertical, então entra sem giro. */
 #madeiras-tipos .door-front,
 #madeiras-tipos .door-back {
   width: var(--w);
   height: var(--h);
   background-image:
     repeating-linear-gradient(90deg,
-      rgba(0, 0, 0, .38) 0 1.5px,
-      rgba(255, 255, 255, .07) 1.5px 3px,
-      rgba(0, 0, 0, 0) 3px 20px),
-    linear-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .05)),
-    url('tecnologia/madeira-01.webp');
-  background-color: #8a4a2a;
+      rgba(48, 26, 12, .32) 0 1px,
+      rgba(255, 255, 255, .1) 1px 2px,
+      rgba(0, 0, 0, 0) 2px 5px),
+    url('texturas/freijo.jpg');
+  background-color: #b8916a;
   box-shadow: inset 0 0 0 1px rgba(22, 35, 61, .5),
-    inset 0 1px 0 rgba(255, 255, 255, .18);
+    inset 0 1px 0 rgba(255, 255, 255, .2);
 }
 
 #madeiras-tipos .door-front {
@@ -1190,15 +1190,12 @@
 }
 
 /* ---- PUXADOR CAVA ----
-   Rebaixo vertical usinado na própria face, junto à aresta do trinco — sem
-   nenhuma peça aplicada. Duplicado nos dois lados, sempre na mesma aresta
-   física, para continuar visível quando a porta gira de costas.
-   A leitura de cavidade vem do sombreado: escuro no alto e nas laterais,
-   fio de luz na aresta de baixo (onde a luz bate no lábio do rebaixo). */
-/* cava quadrada de cantos arredondados, usinada na própria madeira: mesma
-   espécie e mesmo tom da porta, sem nenhum material aplicado. A profundidade
-   vem só da sombra — paredes escurecidas, com o fundo (::before) num plano à
-   parte recebendo a sombra projetada pela parede de cima. */
+   Cava quadrada de cantos arredondados, usinada na própria face junto à aresta
+   do trinco — mesma espécie e mesmo tom da porta, sem nenhuma peça aplicada.
+   Duplicada nos dois lados, sempre na mesma aresta física, para continuar
+   visível quando a porta gira de costas. A profundidade vem só da sombra:
+   paredes escurecidas, com o fundo (::before) num plano à parte recebendo a
+   sombra projetada pela parede de cima. */
 #madeiras-tipos .door-cava {
   position: absolute;
   left: 50%;
@@ -1208,8 +1205,8 @@
   border-radius: calc(var(--w) * .028);
   background-image:
     linear-gradient(190deg, rgba(0, 0, 0, .66) 0%, rgba(0, 0, 0, .4) 52%, rgba(0, 0, 0, .16) 100%),
-    url('tecnologia/madeira-01.webp');
-  background-color: #8a4a2a;
+    url('texturas/freijo.jpg');
+  background-color: #b8916a;
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, .5),
@@ -1226,8 +1223,8 @@
   border-radius: calc(var(--w) * .016);
   background-image:
     linear-gradient(186deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .38) 58%, rgba(0, 0, 0, .28) 100%),
-    url('tecnologia/madeira-01.webp');
-  background-color: #8a4a2a;
+    url('texturas/freijo.jpg');
+  background-color: #b8916a;
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, .55),
