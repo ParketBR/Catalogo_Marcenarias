@@ -5,7 +5,7 @@
    2. Reveal on scroll — fades escopados ao #sobre
    3. Logo escuro sobre seções claras
    4. 02 Tecnologia (#tech-scroll) — camadas 3D dirigidas por scroll
-   5. Madeiras — piso 3D interativo
+   5. Madeiras — porta 3D interativa (gira só na horizontal)
    ═══════════════════════════════════════════════════════════════ */
 
 /* Hero split — progresso 0→1 conforme rola dentro do runway do #hero-viewport. */
@@ -129,67 +129,52 @@
   io.observe(sec);
 })();
 
-/* Madeiras — piso 3D fechado, girável com o mouse/toque (seção #madeiras-tipos) */
+/* Madeiras — porta 3D em pé, girável só na horizontal (seção #madeiras-tipos).
+   Um único eixo (rotateY): a peça fica sempre de pé, como uma porta no batente. */
 (function(){
-  const stage = document.querySelector('#madeiras-tipos [data-floor3d]');
-  const stack = document.querySelector('#madeiras-tipos [data-floor3d-stack]');
+  const stage = document.querySelector('#madeiras-tipos [data-door3d]');
+  const stack = document.querySelector('#madeiras-tipos [data-door3d-stack]');
   if (!stage || !stack) return;
 
-  let rotX = 58, rotZ = -38;
-  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  let rotY = -28;
   let raf = 0;
   const render = () => {
     raf = 0;
-    stack.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateZ(${rotZ.toFixed(2)}deg)`;
+    stack.style.transform = `rotateY(${rotY.toFixed(2)}deg)`;
   };
   const schedule = () => { if (!raf) raf = requestAnimationFrame(render); };
 
-  let dragging = false, lastX = 0, lastY = 0;
+  /* Pointer events com setPointerCapture (mesmo padrão da régua de texturas):
+     o mouseup/touchend chega mesmo fora do palco, então o arraste nunca "cola". */
+  let lastX = null;
 
-  const move = (x, y) => {
-    if (!dragging) return;
-    rotZ -= (x - lastX) * 0.4;
-    rotX = clamp(rotX - (y - lastY) * 0.4, 8, 88);
-    lastX = x; lastY = y;
-    schedule();
-  };
-
-  const onMouseMove = (e) => move(e.clientX, e.clientY);
-  const onMouseUp = () => end();
-  const onTouchMove = (e) => {
-    if (!dragging) return;
-    const t = e.touches[0];
-    if (e.cancelable) e.preventDefault();
-    move(t.clientX, t.clientY);
-  };
-  const onTouchEnd = () => end();
-
-  const start = (x, y) => {
-    dragging = true;
-    lastX = x;
-    lastY = y;
-    stage.classList.add('is-grabbing');
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-    window.addEventListener('mouseup', onMouseUp, { passive: true });
-    window.addEventListener('touchmove', onTouchMove, { passive: false });
-    window.addEventListener('touchend', onTouchEnd, { passive: true });
-  };
-
-  const end = () => {
-    if (!dragging) return;
-    dragging = false;
+  const soltar = () => {
+    if (lastX === null) return;
+    lastX = null;
     stage.classList.remove('is-grabbing');
-    window.removeEventListener('mousemove', onMouseMove);
-    window.removeEventListener('mouseup', onMouseUp);
-    window.removeEventListener('touchmove', onTouchMove);
-    window.removeEventListener('touchend', onTouchEnd);
   };
 
-  stage.addEventListener('mousedown', (e) => { e.preventDefault(); start(e.clientX, e.clientY); });
-  stage.addEventListener('touchstart', (e) => {
-    const t = e.touches[0];
-    start(t.clientX, t.clientY);
-  }, { passive: true });
+  stage.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    e.preventDefault();
+    lastX = e.clientX;
+    stage.classList.add('is-grabbing');
+    stage.setPointerCapture(e.pointerId);
+  });
+
+  /* só o eixo X: a porta gira exclusivamente na horizontal */
+  stage.addEventListener('pointermove', (e) => {
+    if (lastX === null) return;
+    /* botão já solto sem pointerup ter chegado (troca de aba, etc.) */
+    if (e.pointerType === 'mouse' && e.buttons === 0) { soltar(); return; }
+    rotY += (e.clientX - lastX) * 0.45;
+    lastX = e.clientX;
+    schedule();
+  });
+
+  stage.addEventListener('pointerup', soltar);
+  stage.addEventListener('pointercancel', soltar);
+  stage.addEventListener('lostpointercapture', soltar);
 
   render();
 })();
