@@ -1307,6 +1307,223 @@
   color: var(--accent);
 }
 
+/* ═══ Descritivo em linhas — numeração + filetes, sem caixas ═══ */
+#madeiras-tipos .pdesc {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--ink-10);
+}
+
+#madeiras-tipos .pdesc-row {
+  display: grid;
+  grid-template-columns: minmax(0, .42fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: start;
+  padding: clamp(2.25rem, 4vw, 3.5rem) 0;
+  border-bottom: 1px solid var(--ink-10);
+}
+
+#madeiras-tipos .pdesc-side {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+#madeiras-tipos .pdesc-num {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  line-height: .9;
+  letter-spacing: -.04em;
+  color: var(--accent);
+}
+
+#madeiras-tipos .pdesc-label {
+  font-size: var(--text-caption);
+  font-weight: 400;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+}
+
+#madeiras-tipos .pdesc-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  font-size: clamp(1.15rem, 1.75vw, 1.5rem);
+  color: var(--ink-95);
+  max-width: none;
+  text-wrap: balance;
+}
+
+#madeiras-tipos .pdesc-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 42rem;
+}
+
+#madeiras-tipos .pdesc-lead {
+  margin: 0;
+  font-size: var(--text-body);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--ink-70);
+}
+
+/* Especificações: rótulo + linhas separadas por filete (sem marcadores soltos) */
+#madeiras-tipos .pdesc-specs-label {
+  display: block;
+  margin-bottom: .85rem;
+  font-size: var(--text-caption);
+  font-weight: 400;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+}
+
+#madeiras-tipos .pdesc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink-10);
+}
+
+/* fluxo inline (não grid): trechos em <span> seguem na mesma linha do texto */
+#madeiras-tipos .pdesc-list li {
+  position: relative;
+  padding: .7rem 0 .7rem 1.25rem;
+  border-bottom: 1px solid var(--ink-10);
+  font-size: var(--text-small);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-95);
+}
+
+#madeiras-tipos .pdesc-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.32em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+#madeiras-tipos .pdesc-result {
+  margin: 0;
+  font-size: var(--text-small);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink-95);
+}
+
+#madeiras-tipos .pdesc-result-label {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: var(--text-caption);
+  font-weight: 400;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+}
+
+/* Outros acabamentos — um cartão por acabamento */
+#madeiras-tipos .pacab {
+  margin-top: clamp(2.5rem, 4.5vw, 4rem);
+}
+
+#madeiras-tipos .pacab-eyebrow {
+  display: block;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: var(--text-caption);
+  font-weight: 400;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+}
+
+#madeiras-tipos .pacab-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+#madeiras-tipos .pacab-card {
+  border: 1px solid var(--ink-10);
+  border-top: 2px solid var(--accent);
+  padding: clamp(1.5rem, 2.6vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+
+#madeiras-tipos .pacab-num {
+  font-size: var(--text-caption);
+  font-weight: 400;
+  letter-spacing: .3em;
+  color: var(--ink-40);
+}
+
+#madeiras-tipos .pacab-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  color: var(--ink-95);
+}
+
+#madeiras-tipos .pacab-card p {
+  margin: 0;
+  font-size: var(--text-small);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink-70);
+}
+
+@media (max-width:1024px) {
+  #madeiras-tipos .pacab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width:560px) {
+  #madeiras-tipos .pacab-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width:900px) {
+  #madeiras-tipos .pdesc-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  #madeiras-tipos .pdesc-side {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+  }
+
+  #madeiras-tipos .pdesc-num {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  #madeiras-tipos .pdesc-title {
+    flex: 1 0 100%;
+    max-width: none;
+  }
+
+  #madeiras-tipos .pdesc-list li {
+    padding-left: 1rem;
+  }
+}
+
 #madeiras-tipos .mtipos-card p {
   margin: 0;
   font-size: var(--text-small);

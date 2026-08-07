@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="preload" as="image" href="autoload/Hero.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="portas/image.webp" fetchpriority="high">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back,arrow_upward,chevron_left,chevron_right,close,search&display=swap" rel="stylesheet">
   <script src="assets/js/components.js"></script>
@@ -27,7 +27,7 @@
     }
   </script>
   <link rel="stylesheet" href="catalogo.css?v=4">
-  <link rel="stylesheet" href="index.css?v=41">
+  <link rel="stylesheet" href="index.css?v=51">
 </head>
 
 <body class="antialiased selection:bg-white selection:text-black">
@@ -56,7 +56,7 @@
   <!-- ─── HERO · imagem full-bleed que desliza para o lado revelando o título ─── -->
   <section id="hero-viewport" class="hero-split">
     <div id="hero-sticky">
-      <div id="hero-bg" class="hero-media" style="background-image: url('autoload/Hero.webp');"></div>
+      <div id="hero-bg" class="hero-media" style="background-image: url('portas/image.webp');"></div>
       <span class="hero-wordmark" aria-hidden="true">porta</span>
       <div id="hero-content" class="hero-copy">
         <span class="hero-eyebrow">Coleção 2026</span>
@@ -177,22 +177,21 @@
       <div class="mtipos-top">
         <div class="mtipos-copy">
           <header class="mtipos-head fade-up">
-            <span class="mtipos-eyebrow">Sobre as madeiras</span>
-            <h2 class="mtipos-title">Madeira maciça ou madeira engenheirada?
-              <span class="mtipos-sub">Entenda as diferenças</span>
+            <span class="mtipos-eyebrow">Portas de passagem</span>
+            <h2 class="mtipos-title">Composição e descritivo
+              <span class="mtipos-sub">Cada camada, do miolo à ferragem</span>
             </h2>
           </header>
 
           <div class="mtipos-intro">
-            <p class="fade-up">Hoje existem diversas formas de construir uma peça de marcenaria, com diferentes
-              espessuras, espécies, acabamentos e tecnologias. Por isso, a escolha não deve ser baseada apenas na
-              estética.</p>
-            <p class="fade-up" style="transition-delay:.06s">Além da beleza e da sensação de aconchego que a madeira
-              proporciona, um painel, uma porta ou um armário é um elemento técnico da obra. Características como
-              estabilidade dimensional, resistência às variações de umidade, espessura e desempenho ao longo do tempo
-              fazem toda a diferença.</p>
-            <p class="mtipos-lead fade-up" style="transition-delay:.12s">A principal comparação é entre a madeira maciça
-              e a madeira engenheirada.</p>
+            <p class="fade-up">Porta de passagem composta por madeiras nacionais brasileiras, com estrutura interna em
+              madeira maciça e serralheria e uma contracapa em compensado naval, material usado em embarcações,
+              resistente à água. Batentes em madeira maciça, para segurança e alta resistência.</p>
+            <p class="fade-up" style="transition-delay:.06s">Acabamento externo em lâmina natural: as nacionais
+              extraídas do norte do Brasil e as importadas da Alemanha, região de Hamburgo, com catedrais homogêneas,
+              todas com certificações rigorosas de manejo florestal sustentável FSC e PEFC.</p>
+            <p class="mtipos-lead fade-up" style="transition-delay:.12s">Cada camada é escolhida por uma razão técnica,
+              não apenas estética.</p>
           </div>
         </div>
 
@@ -221,74 +220,133 @@
         </div>
       </div>
 
-      <div class="mtipos-cards">
+      <!-- Descritivo em linhas: numeração + filetes, sem caixas -->
+      <div class="pdesc">
 
-  <!-- Madeira Maciça -->
-  <article class="mtipos-card fade-up visible">
+        <article class="pdesc-row fade-up">
+          <div class="pdesc-side">
+            <span class="pdesc-num">01</span>
+            <span class="pdesc-label">Estrutura</span>
+            <h3 class="pdesc-title">Madeiras nacionais brasileiras</h3>
+          </div>
+          <div class="pdesc-body">
+            <p class="pdesc-lead">Estrutura interna em madeira maciça e serralheria, com contracapa em compensado
+              naval, o mesmo material usado em embarcações.</p>
+            <div class="pdesc-specs">
+              <span class="pdesc-specs-label">Composição</span>
+              <ul class="pdesc-list">
+                <li>Madeiras nacionais brasileiras</li>
+                <li>Miolo em madeira maciça e serralheria</li>
+                <li>Contracapa em compensado naval, resistente à água</li>
+                <li>Batentes em madeira maciça</li>
+              </ul>
+            </div>
+            <p class="pdesc-result"><span class="pdesc-result-label">Resultado</span>Segurança e alta resistência ao
+              longo do tempo.</p>
+          </div>
+        </article>
 
-    <span class="mtipos-badge">Peça Única</span>
+        <article class="pdesc-row fade-up">
+          <div class="pdesc-side">
+            <span class="pdesc-num">02</span>
+            <span class="pdesc-label">Acabamento externo</span>
+            <h3 class="pdesc-title">Lâmina natural</h3>
+          </div>
+          <div class="pdesc-body">
+            <p class="pdesc-lead">Lâminas nacionais extraídas do norte do Brasil e importadas da Alemanha, região de
+              Hamburgo, com catedrais homogêneas.</p>
+            <div class="pdesc-specs">
+              <span class="pdesc-specs-label">Origem e certificação</span>
+              <ul class="pdesc-list">
+                <li>Lâmina nacional · norte do Brasil</li>
+                <li>Lâmina importada · Alemanha, região de Hamburgo</li>
+                <li>Catedrais homogêneas</li>
+                <li>Certificações rigorosas de manejo florestal sustentável FSC e PEFC</li>
+              </ul>
+            </div>
+            <p class="pdesc-result"><span class="pdesc-result-label">Resultado</span>Desenho de veios uniforme e origem
+              responsável comprovada.</p>
+          </div>
+        </article>
 
-    <h3 class="mtipos-card-title">Madeira Maciça</h3>
+        <article class="pdesc-row fade-up">
+          <div class="pdesc-side">
+            <span class="pdesc-num">03</span>
+            <span class="pdesc-label">Proteção</span>
+            <h3 class="pdesc-title">Lustração base água</h3>
+          </div>
+          <div class="pdesc-body">
+            <p class="pdesc-lead">Proteção com lustração base água da renomada marca italiana <span translate="no"
+                class="notranslate">Milesi</span>.</p>
+            <div class="pdesc-specs">
+              <span class="pdesc-specs-label">Características</span>
+              <ul class="pdesc-list">
+                <li>Lustração base água</li>
+                <li>Marca italiana <span translate="no" class="notranslate">Milesi</span></li>
+                <li>Mantém a tonalidade e a cor da madeira viva</li>
+              </ul>
+            </div>
+            <p class="pdesc-result"><span class="pdesc-result-label">Resultado</span>A madeira preserva o tom natural,
+              sem película amarelada.</p>
+          </div>
+        </article>
 
-    <p class="mtipos-intro">
-      Produzida a partir de uma única peça de madeira, preservando toda a
-      autenticidade e a beleza natural da matéria-prima.
-    </p>
+        <article class="pdesc-row fade-up">
+          <div class="pdesc-side">
+            <span class="pdesc-num">04</span>
+            <span class="pdesc-label">Ferragens</span>
+            <h3 class="pdesc-title"><span translate="no" class="notranslate">Häfele</span> · Alemanha</h3>
+          </div>
+          <div class="pdesc-body">
+            <p class="pdesc-lead">Ferragens produzidas e fornecidas da Alemanha pela renomada <span translate="no"
+                class="notranslate">Häfele</span>, em aço inox.</p>
+            <div class="pdesc-specs">
+              <span class="pdesc-specs-label">Sistema de travamento</span>
+              <ul class="pdesc-list">
+                <li>Material em aço inox</li>
+                <li>Fechadura auxiliar lingueta</li>
+                <li>Imãs embutidos no topo para estabilidade</li>
+                <li>Dobradiças invisíveis 3D com regulagem articulada</li>
+              </ul>
+            </div>
+            <p class="pdesc-result"><span class="pdesc-result-label">Resultado</span>Fechamento preciso, silencioso e
+              regulável em todos os eixos.</p>
+          </div>
+        </article>
 
-    <div class="mtipos-divider"></div>
+      </div>
 
-    <h4>Características</h4>
+      <!-- Outros acabamentos — um cartão por acabamento -->
+      <div class="pacab">
+        <span class="pacab-eyebrow fade-up">Outros acabamentos</span>
+        <div class="pacab-grid">
 
-    <ul class="mtipos-list">
-      <li>Peça única de madeira maciça</li>
-      <li>Visual totalmente natural</li>
-      <li>Movimentação natural da madeira</li>
-      <li>Pode apresentar frestas e empenamentos</li>
-      <li>Mais indicada para ambientes com clima estável</li>
-    </ul>
+          <article class="pacab-card fade-up">
+            <span class="pacab-num">01</span>
+            <h3 class="pacab-title">Ripado maciço</h3>
+            <p>Réguas em madeira maciça aplicadas em ritmo contínuo, com relevo e sombra próprios.</p>
+          </article>
 
-    <div class="mtipos-footer">
-      <h4>Ideal para</h4>
-      <p>Projetos que valorizam a autenticidade da madeira maciça.</p>
-    </div>
+          <article class="pacab-card fade-up" style="transition-delay:.06s">
+            <span class="pacab-num">02</span>
+            <h3 class="pacab-title">Assoalho</h3>
+            <p>A mesma régua do piso levada à porta, dando continuidade ao desenho do ambiente.</p>
+          </article>
 
-  </article>
+          <article class="pacab-card fade-up" style="transition-delay:.12s">
+            <span class="pacab-num">03</span>
+            <h3 class="pacab-title">Laca colorida</h3>
+            <p>Superfície lisa em laca, na cor definida pelo projeto.</p>
+          </article>
 
-  <!-- Madeira Engenheirada -->
-  <article class="mtipos-card mtipos-card--eng fade-up visible" style="transition-delay:.08s">
+          <article class="pacab-card fade-up" style="transition-delay:.18s">
+            <span class="pacab-num">04</span>
+            <h3 class="pacab-title"><span translate="no" class="notranslate">Shou sugi ban</span></h3>
+            <p>Técnica japonesa de queima controlada da madeira, de textura marcada e tom profundo.</p>
+          </article>
 
-    <span class="mtipos-badge">Alta Estabilidade</span>
-
-    <h3 class="mtipos-card-title">Madeira Engenheirada</h3>
-
-    <p class="mtipos-intro">
-      Estrutura multicamadas desenvolvida para reduzir movimentações naturais,
-      mantendo toda a beleza e a textura da madeira nobre.
-    </p>
-
-    <div class="mtipos-divider"></div>
-
-    <h4>Vantagens</h4>
-
-    <ul class="mtipos-list">
-      <li>100% madeira natural</li>
-      <li>Estrutura multicamadas</li>
-      <li>Maior estabilidade dimensional</li>
-      <li>Resistência às variações climáticas</li>
-      <li>Permite painéis e portas de grandes dimensões</li>
-      <li>Excelente desempenho em portas ocultas e armários embutidos</li>
-    </ul>
-
-    <div class="mtipos-footer">
-      <h4>Ideal para</h4>
-      <p>Residências e projetos de alto padrão que exigem máxima estabilidade.</p>
-    </div>
-
-  </article>
-
-</div>
-      <p class="mtipos-outro fade-up">O resultado é uma marcenaria que mantém a elegância da madeira maciça, mas com
-        desempenho superior, oferecendo mais segurança, conforto e estabilidade para o dia a dia.</p>
+        </div>
+      </div>
 
       <!-- Bloco final: como a madeira reage -->
       <div class="mtipos-react">
