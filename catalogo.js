@@ -690,13 +690,32 @@
 
       // Índice numerado de MODELOS p/ produtos-galeria (sem coleções): usa os nomes
       // das fotos (dedup), ancora em #foto-<key>-<i>. Mesmo visual do índice de coleções.
+      // Espécies-base: variações da mesma madeira (Customizado, Light Brown, etc.)
+      // entram no índice como um item só, para não poluir a lista.
+      // A ordem importa: find() pega o primeiro que casar, então compostos vêm
+      // antes — "Shou Sugi Ban + Freijó" casa com Shou Sugi Ban, não com Freijó.
+      const ESPECIES_BASE = [
+        'Muxarabi', 'Shou Sugi Ban', 'Laca Branca',
+        'Carvalho Europeu', 'Tauari', 'Freijó', 'Cumaru', 'Nogueira', 'Teca',
+        'Peroba do Campo', 'Peroba de Demolição', 'Cabreúva Dourada', 'Cabreúva Branca',
+        'Itaúba', 'Ipê', 'Pinho de Riga'
+      ];
+      const especieBase = (nome) => ESPECIES_BASE.find(b => nome.includes(b)) || nome;
+
       function buildModelsIndex(product) {
-        const seen = new Set();
-        const models = [];
+        const porBase = new Map();
         (product.images || []).forEach((im, i) => {
           const nm = (im && typeof im === 'object') ? im.name : null;
-          if (nm && !seen.has(nm)) { seen.add(nm); models.push({ name: nm, i }); }
+          if (!nm) return;
+          const base = especieBase(nm);
+          // guarda a primeira foto do grupo e conta quantas variações ele tem
+          if (!porBase.has(base)) porBase.set(base, { name: nm, base, i, count: 0 });
+          porBase.get(base).count++;
         });
+        // Grupo com mais de uma foto vira o nome da espécie ("Carvalho Europeu");
+        // grupo de foto única mantém o nome original ("Toblerone de Cabreúva Branca").
+        const models = Array.from(porBase.values())
+          .map(m => ({ name: m.count > 1 ? m.base : m.name, i: m.i }));
         if (!models.length) return null;
         const wrap = document.createElement('div');
         wrap.className = 'collections-index';
@@ -853,11 +872,20 @@
               menuItems.push({ label: c.titleHtml || c.title, target: `colecao-${p.key}-${c.key}` });
             });
           } else if (p.images && p.images.length) {
-            const seen = new Set();
+            // mesmo agrupamento do índice de modelos, para o menu não repetir
+            // "Carvalho Europeu" três vezes
+            const porBase = new Map();
             p.images.forEach((im, i) => {
               const nm = (im && typeof im === 'object') ? im.name : null;
-              if (nm && !seen.has(nm)) { seen.add(nm); menuItems.push({ label: nm, target: `foto-${p.key}-${i}` }); }
+              if (!nm) return;
+              const base = especieBase(nm);
+              if (!porBase.has(base)) porBase.set(base, { name: nm, base, i, count: 0 });
+              porBase.get(base).count++;
             });
+            porBase.forEach(m => menuItems.push({
+              label: m.count > 1 ? m.base : m.name,
+              target: `foto-${p.key}-${m.i}`
+            }));
           }
         });
 
