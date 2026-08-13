@@ -2,7 +2,7 @@ class ParketLoader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div id="parket-global-loader" style="position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s cubic-bezier(.22,.61,.36,1); pointer-events: none;">
-        <h1 style="font-family: 'Inter', sans-serif; font-size: 1.5rem; letter-spacing: 0.5em; text-transform: uppercase; color: #fff; font-weight: 200; animation: pulse 2s infinite ease-in-out;">
+        <h1 style="font-family: 'Inter', sans-serif; font-size: 1.5rem; letter-spacing: 0.5em; text-transform: uppercase; color: #fff; font-weight: 300; animation: pulse 2s infinite ease-in-out;">
           Parket
         </h1>
       </div>
