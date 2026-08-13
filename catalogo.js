@@ -276,7 +276,8 @@
           cover: 'portas/image.webp',
           videos: [
             { type: 'youtube', id: 'CzXoo6eq06M', vertical: true, title: 'Portas que narram a identidade do ambiente desde o primeiro toque' },
-            { type: 'youtube', id: 's_nafoR1yec', vertical: true, title: 'O limiar da sofisticação em cada detalhe da porta' }
+            { type: 'youtube', id: 's_nafoR1yec', vertical: true, title: 'O limiar da sofisticação em cada detalhe da porta' },
+            { type: 'youtube', id: 'E5B2cxIcobo', vertical: true, title: 'Madeira, proporção e acabamento: a porta como assinatura do projeto' }
           ],
           images: [
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PO-01.jpg", name: "Muxarabi de Cumaru Premium" },
